@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_035101) do
+ActiveRecord::Schema.define(version: 2019_06_27_023935) do
 
   create_table "operators", force: :cascade do |t|
     t.string "name", limit: 20, null: false
     t.string "symbol", limit: 1, null: false
     t.index ["name"], name: "index_operators_on_name", unique: true
     t.index ["symbol"], name: "index_operators_on_symbol", unique: true
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.integer "x_value", null: false
+    t.integer "y_value", null: false
+    t.integer "operator_id", null: false
+    t.integer "correct_answers", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
   end
 
 end
