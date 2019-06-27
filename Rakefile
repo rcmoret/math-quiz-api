@@ -14,5 +14,6 @@ namespace :app do
     ENV['RACK_ENV'] = :development
     require 'bundler/setup'
     Bunlder.require(:development)
+    require './app/models/operator'
   end
 end
