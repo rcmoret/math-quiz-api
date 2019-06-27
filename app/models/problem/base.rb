@@ -3,6 +3,9 @@ module Problem
     self.table_name = :problems
     belongs_to :operator
 
-    scope :multiplication, -> { joins(:operator).merge(Operator.for(:multiplication)) }
+    scope :addition, -> { where(operator: Operator.for(:addition)) }
+    scope :subtraction, -> { where(operator: Operator.for(:subtraction)) }
+    scope :multiplication, -> { where(operator: Operator.for(:multiplication)) }
+    scope :division, -> { where(operator: Operator.for(:division)) }
   end
 end

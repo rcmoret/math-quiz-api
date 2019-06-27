@@ -16,5 +16,7 @@ class Operator < ActiveRecord::Base
   validates :name, inclusion: { in: VALID_NAMES }
   validates :symbol, inclusion: { in: VALID_SYMBOLS }
 
-  scope :for, ->(name) { where(VALID_OPERATORS.fetch(name.to_sym)) }
+  def self.for(name)
+    find_or_create_by(VALID_OPERATORS.fetch(name.to_sym))
+  end
 end

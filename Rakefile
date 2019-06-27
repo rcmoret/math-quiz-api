@@ -26,5 +26,6 @@ namespace :app do
     Bundler.require(:development)
     require './config/environments'
     require './app/models/operator'
+    require './app/models/problem/base'
   end
 end
