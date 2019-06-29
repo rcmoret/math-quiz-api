@@ -8,6 +8,7 @@ class CreateProblems < ActiveRecord::Migration[5.2]
       t.integer :attempts, null: false, default: 0
     end
 
+    add_index :problems, %i[x_value y_value operator_id], unique: true
     add_foreign_key :problems, :operators
   end
 end

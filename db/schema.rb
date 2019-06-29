@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2019_06_27_023935) do
     t.integer "operator_id", null: false
     t.integer "correct_answers", default: 0, null: false
     t.integer "attempts", default: 0, null: false
+    t.index ["x_value", "operator_id"], name: "index_problems_on_x_value_and_operator_id", unique: true
+    t.index ["x_value", "y_value"], name: "index_problems_on_x_value_and_y_value", unique: true
+    t.index ["y_value", "operator_id"], name: "index_problems_on_y_value_and_operator_id", unique: true
   end
 
 end
