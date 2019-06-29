@@ -13,5 +13,14 @@ module Problem
     def readonly?
       true
     end
+
+    def log_failure
+      update(attempts: (attempts + 1))
+    end
+
+    def log_success!
+      update(attempts: (attempts + 1), correct_answers: (correct_answers + 1))
+    end
+
   end
 end
