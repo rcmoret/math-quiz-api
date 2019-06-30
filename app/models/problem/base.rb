@@ -10,16 +10,35 @@ module Problem
     scope :multiplication, -> { where(operator: Operator.for(:multiplication)) }
     scope :division, -> { where(operator: Operator.for(:division)) }
 
+    def as_subclass
+      subclass.find(id)
+    end
+
     def readonly?
       true
     end
 
-    def log_failure
+    def log_failure!
       update(attempts: (attempts + 1))
     end
 
     def log_success!
       update(attempts: (attempts + 1), correct_answers: (correct_answers + 1))
+    end
+
+    private
+
+    def subclass
+      case operator
+      when Operator.for(:addition)
+        Addition
+      when Operator.for(:division)
+        Division
+      when Operator.for(:multiplication)
+        Multiplication
+      when Operator.for(:subtraction)
+        Subtraction
+      end
     end
 
   end
