@@ -31,5 +31,6 @@ namespace :app do
     require './app/models/problem/division'
     require './app/models/problem/multiplication'
     require './app/models/problem/subtraction'
+    require './app/models/problem/view'
   end
 end

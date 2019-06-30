@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_023935) do
+ActiveRecord::Schema.define(version: 2019_06_30_152931) do
 
   create_table "operators", force: :cascade do |t|
     t.string "name", limit: 20, null: false
