@@ -6,5 +6,6 @@ group :development do
   gem 'activerecord'
   gem 'rb-readline'
   gem 'sqlite3'
+  gem 'sinatra'
   gem 'standalone_migrations'
 end
