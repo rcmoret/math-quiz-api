@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_152931) do
+ActiveRecord::Schema.define(version: 2019_07_03_152931) do
+
+  create_table "attempts", force: :cascade do |t|
+    t.integer "problem_id"
+    t.boolean "success", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["problem_id"], name: "index_attempts_on_problem_id"
+  end
 
   create_table "operators", force: :cascade do |t|
     t.string "name", limit: 20, null: false
@@ -23,11 +31,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_152931) do
     t.integer "x_value", null: false
     t.integer "y_value", null: false
     t.integer "operator_id", null: false
-    t.integer "correct_answers", default: 0, null: false
-    t.integer "attempts", default: 0, null: false
-    t.index ["x_value", "operator_id"], name: "index_problems_on_x_value_and_operator_id", unique: true
-    t.index ["x_value", "y_value"], name: "index_problems_on_x_value_and_y_value", unique: true
-    t.index ["y_value", "operator_id"], name: "index_problems_on_y_value_and_operator_id", unique: true
+    t.index ["x_value", "y_value", "operator_id"], name: "index_problems_on_x_value_and_y_value_and_operator_id", unique: true
   end
 
 end

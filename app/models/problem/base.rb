@@ -2,6 +2,9 @@ module Problem
   class Base < ActiveRecord::Base
     self.table_name = :problems
     belongs_to :operator
+    has_many :attempts,
+             class_name: 'Attempt',
+             foreign_key: :problem_id
 
     validates_uniqueness_of :operator_id, scope: %i[x_value y_value]
 
@@ -19,11 +22,11 @@ module Problem
     end
 
     def log_failure!
-      update(attempts: (attempts + 1))
+      attempts.create(success: false)
     end
 
     def log_success!
-      update(attempts: (attempts + 1), correct_answers: (correct_answers + 1))
+      attempts.create(success: true)
     end
 
     private

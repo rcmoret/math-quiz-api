@@ -28,6 +28,7 @@ namespace :app do
     require './app/models/operator'
     require './app/models/problem/base'
     require './app/models/problem/addition'
+    require './app/models/problem/attempt'
     require './app/models/problem/division'
     require './app/models/problem/multiplication'
     require './app/models/problem/subtraction'
