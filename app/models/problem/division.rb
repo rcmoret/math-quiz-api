@@ -13,6 +13,7 @@ module Problem
     private
 
     def even_divisibilty!
+      return if y_value.zero?
       return if (x_value % y_value).zero?
       errors.add(:values, 'Must be evenly divisible')
     end
