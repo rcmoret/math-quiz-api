@@ -4,3 +4,7 @@ use Rack::Cors do
     resource '*', headers: :any, methods: %i(get post put options delete)
   end
 end
+
+map '/problems' do
+  run ProblemsApi.new
+end
