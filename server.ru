@@ -5,6 +5,10 @@ use Rack::Cors do
   end
 end
 
+map '/problem' do
+  run ProblemApi.new
+end
+
 map '/problems' do
   run ProblemsApi.new
 end

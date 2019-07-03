@@ -1,8 +1,8 @@
 class ProblemsApi < Sinatra::Base
-  # register Sinatra::Namespace
   include Shared
 
   get %r{/} do
+    sleep 1.5
     render_collection(problems)
   end
 

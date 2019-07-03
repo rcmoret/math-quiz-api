@@ -35,6 +35,7 @@ namespace :app do
     require './app/models/problem/subtraction'
     require './app/models/problem/view'
     require './app/shared.rb'
+    require './app/api/problem_api'
     require './app/api/problems_api'
   end
 end
