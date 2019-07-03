@@ -9,6 +9,7 @@ task console: 'app:console'
 namespace :app do
   desc 'Start application'
   task start: :setup do
+    Rack::Server.start(config: './server.ru', Host: '0.0.0.0', Port: 4040)
   end
 
   desc 'Start application console'

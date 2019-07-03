@@ -4,6 +4,7 @@ group :development do
   gem 'sinatra'
 
   gem 'activerecord'
+  gem 'rack-cors'
   gem 'rb-readline'
   gem 'sqlite3'
   gem 'sinatra'
