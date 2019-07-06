@@ -26,6 +26,7 @@ namespace :app do
     require 'bundler/setup'
     Bundler.require(:development)
     require './config/environments'
+    require './app/models/meme'
     require './app/models/operator'
     require './app/models/problem/base'
     require './app/models/problem/addition'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_152931) do
+ActiveRecord::Schema.define(version: 2019_07_06_162530) do
 
   create_table "attempts", force: :cascade do |t|
     t.integer "problem_id"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2019_07_03_152931) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["problem_id"], name: "index_attempts_on_problem_id"
+  end
+
+  create_table "memes", force: :cascade do |t|
+    t.string "url", limit: 200, null: false
+    t.integer "width", null: false
+    t.integer "height", null: false
+    t.boolean "success", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "operators", force: :cascade do |t|
