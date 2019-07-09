@@ -2,13 +2,12 @@ class ProblemApi < Sinatra::Base
   register Sinatra::Namespace
 
   namespace %r{/(?<id>\d+)} do
-    put '/log_success' do
-      problem.log_success!
-      [201, {}.to_json]
-    end
-
-    put '/log_failure' do
-      problem.log_failure!
+    post '/attempt' do
+      if params['success'] == 'true'
+        problem.log_success!
+      else
+        problem.log_failure!
+      end
       [201, {}.to_json]
     end
 
