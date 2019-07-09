@@ -9,6 +9,6 @@ class ProblemsApi < Sinatra::Base
   private
 
   def problems
-    Problem::View.all
+    Problem::View.all.shuffle
   end
 end
