@@ -5,6 +5,10 @@ use Rack::Cors do
   end
 end
 
+map '/memes' do
+  run MemesApi.new
+end
+
 map '/problem' do
   run ProblemApi.new
 end
